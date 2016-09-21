@@ -4,17 +4,26 @@
   <meta charset="UTF-8">
   <title>Angular Registration</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <!-- Presentations links -->
   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/lib/angular/angular.min.js" charset="utf-8"></script>
+  <!-- AngularJS scripts -->
+  <script src="js/lib/angular/angular.js" charset="utf-8"></script>
   <script src="js/lib/angular/angular-route.min.js" charset="utf-8"></script>
   <script src="js/lib/angular/angular-animate.min.js" charset="utf-8"></script>
+  <script src="js/lib/angular/angularfire.min.js" charset="utf-8"></script>
+  <!-- Local JS -->
   <script src="js/app.js" charset="utf-8"></script>
   <script src="js/controllers/registration.js" charset="utf-8"></script>
   <script src="js/controllers/success.js" charset="utf-8"></script>
 </head>
 <body>
-<header></header>
+<header>
+  <!-- ng-include allows you to include a document inside another document.  -->
+  <nav class="cf" ng-include="'views/nav.html'"></nav>
+</header>
 <div class="page">
   <main class="cf" ng-view>
   </main>
