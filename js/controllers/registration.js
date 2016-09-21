@@ -14,21 +14,19 @@ myApp.controller('RegistrationController',
   // Initialize SDK
   firebase.initializeApp(config);
 
-  // add Comment
-  var rootRef = firebase.database().ref();
-
   $scope.login = function() {
     $scope.message = 'Welcome ' + $scope.user.email;
   }; // login
 
   $scope.register = function() {
-    rootRef.$createUser({
-      email: $scope.user.email,
-      password: $scope.user.password
-    }).then(function(regUser) { //JS promise
-      $scope.message = 'Hi ' + $scope.user.firstname + ' ' + $scope.user.lastname + ', thanks for registering!';
-    }).catch(function(error){
+    email    = $scope.user.email;
+    password = $scope.user.password;
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(regUser) {
+      $scope.message = 'Hi ' + $scope.user.firstname.charAt(0).toUpperCase() + $scope.user.firstname.slice(1) + ' ' + $scope.user.lastname.charAt(0).toUpperCase() + $scope.user.lastname.slice(1) + ', thanks for registering!';
+     }).catch(function(error) {
+   // Handle Errors here.
+   // var errorCode = error.code;
       $scope.message = error.message;
-    }); // createUser
-  } // register
+    });
+  }; // register
 }]); // factory
